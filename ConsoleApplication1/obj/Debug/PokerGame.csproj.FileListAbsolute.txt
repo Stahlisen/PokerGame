@@ -1,0 +1,8 @@
+c:\users\betaståhl\documents\visual studio 2013\Projects\ConsoleApplication1\ConsoleApplication1\bin\Debug\ConsoleApplication1.exe.config
+c:\users\betaståhl\documents\visual studio 2013\Projects\ConsoleApplication1\ConsoleApplication1\bin\Debug\ConsoleApplication1.exe
+c:\users\betaståhl\documents\visual studio 2013\Projects\ConsoleApplication1\ConsoleApplication1\bin\Debug\ConsoleApplication1.pdb
+c:\users\betaståhl\documents\visual studio 2013\Projects\ConsoleApplication1\ConsoleApplication1\obj\Debug\PokerGame.csprojResolveAssemblyReference.cache
+c:\users\betaståhl\documents\visual studio 2013\Projects\ConsoleApplication1\ConsoleApplication1\obj\Debug\ConsoleApplication1.Gamewindow.resources
+c:\users\betaståhl\documents\visual studio 2013\Projects\ConsoleApplication1\ConsoleApplication1\obj\Debug\PokerGame.csproj.GenerateResource.Cache
+c:\users\betaståhl\documents\visual studio 2013\Projects\ConsoleApplication1\ConsoleApplication1\obj\Debug\ConsoleApplication1.exe
+c:\users\betaståhl\documents\visual studio 2013\Projects\ConsoleApplication1\ConsoleApplication1\obj\Debug\ConsoleApplication1.pdb
