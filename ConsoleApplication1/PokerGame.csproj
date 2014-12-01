@@ -43,11 +43,27 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Card.cs" />
+    <Compile Include="CardDeck.cs" />
+    <Compile Include="Dealer.cs" />
+    <Compile Include="Game.cs" />
     <Compile Include="Gamewindow.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Gamewindow.Designer.cs">
       <DependentUpon>Gamewindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Player.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Startwindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Startwindow.Designer.cs">
+      <DependentUpon>Startwindow.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -59,6 +75,19 @@
     <EmbeddedResource Include="Gamewindow.resx">
       <DependentUpon>Gamewindow.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Startwindow.resx">
+      <DependentUpon>Startwindow.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\table-darkergreen-nologo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\poker_table_environment.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

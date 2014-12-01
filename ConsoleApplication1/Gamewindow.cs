@@ -12,12 +12,44 @@ namespace ConsoleApplication1
 {
     public partial class Gamewindow : Form
     {
-        public Gamewindow()
+
+        Game game;
+        public Gamewindow(Game Game)
         {
             InitializeComponent();
+            game = Game;
+
+            player1_label.Parent = playerinfo_panel;
+            player1chips_label.Parent = playerinfo_panel;
+            desc_chips1_label.Parent = playerinfo_panel;
         }
 
+        
+
         private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void player1_label_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Gamewindow_Load(object sender, EventArgs e)
+        {
+            player1_label.Text = game.getPlayer().getName();
+            player1chips_label.Text = Convert.ToString(game.getPlayer().getCurrentChips());
+
+            
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox1_Click_1(object sender, EventArgs e)
         {
 
         }

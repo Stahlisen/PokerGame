@@ -6,13 +6,22 @@ using System.Threading.Tasks;
 
 namespace ConsoleApplication1
 {
-    class Program
+    public class Dealer
     {
-        static void Main(string[] args)
+
+       CardDeck deck = new CardDeck();
+
+        public Dealer()
         {
-            Startwindow startwindow = new Startwindow();
-            startwindow.ShowDialog();
 
         }
+
+        public CardDeck getDeck()
+        {
+            return deck;
+        }
+
+
+
     }
 }
