@@ -63,6 +63,26 @@ namespace ConsoleApplication1.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap CARD_BACK {
+            get {
+                object obj = ResourceManager.GetObject("CARD-BACK", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap CLUBS_JACK {
+            get {
+                object obj = ResourceManager.GetObject("CLUBS-JACK", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap poker_table_environment {
             get {
                 object obj = ResourceManager.GetObject("poker_table_environment", resourceCulture);

@@ -18,5 +18,12 @@ namespace ConsoleApplication1
             value = cardValue;
             suit = cardSuit;
         }
+
+        public string getCard()
+        {
+            return value + "of" + suit;
+        }
+
+
     }
 }

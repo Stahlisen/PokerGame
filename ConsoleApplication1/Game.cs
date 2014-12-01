@@ -13,6 +13,7 @@ namespace ConsoleApplication1
         public double chips;
 
         Player player = new Player();
+        Dealer dealer = new Dealer();
 
         public Game(double Chips, string name)
         {
@@ -62,6 +63,12 @@ namespace ConsoleApplication1
         public Player getPlayer()
         {
             return player;
+        }
+
+        public Dealer getDealer()
+        {
+
+            return dealer;
         }
         
 

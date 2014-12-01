@@ -14,6 +14,7 @@ namespace ConsoleApplication1
     {
 
         Game game;
+        int counter = 0;
         public Gamewindow(Game Game)
         {
             InitializeComponent();
@@ -22,6 +23,9 @@ namespace ConsoleApplication1
             player1_label.Parent = playerinfo_panel;
             player1chips_label.Parent = playerinfo_panel;
             desc_chips1_label.Parent = playerinfo_panel;
+            game.getDealer().getDeck().shuffleDeck();
+
+            Console.WriteLine(game.getDealer().getDeck().getTopCard());
         }
 
         
@@ -52,6 +56,24 @@ namespace ConsoleApplication1
         private void pictureBox1_Click_1(object sender, EventArgs e)
         {
 
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox1_Click_2(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            Console.WriteLine(game.getDealer().getDeck().getTopCard());
+            
+            Console.WriteLine(counter++);
+            
         }
     }
 }
