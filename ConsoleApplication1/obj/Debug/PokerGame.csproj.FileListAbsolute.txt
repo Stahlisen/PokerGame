@@ -16,3 +16,13 @@ C:\Users\BetaStåhl\Desktop\PokerGameGit\PokerGame\ConsoleApplication1\obj\Debug
 C:\Users\BetaStåhl\Desktop\PokerGameGit\PokerGame\ConsoleApplication1\obj\Debug\ConsoleApplication1.Startwindow.resources
 C:\Users\BetaStåhl\Desktop\PokerGameGit\PokerGame\ConsoleApplication1\obj\Debug\ConsoleApplication1.Gamewindow.resources
 C:\Users\BetaStåhl\Desktop\PokerGameGit\PokerGame\ConsoleApplication1\obj\Debug\ConsoleApplication1.Properties.Resources.resources
+\\psf\Home\git\PokerGame\ConsoleApplication1\bin\Debug\ConsoleApplication1.exe.config
+\\psf\Home\git\PokerGame\ConsoleApplication1\obj\Debug\ConsoleApplication1.exe
+\\psf\Home\git\PokerGame\ConsoleApplication1\obj\Debug\ConsoleApplication1.pdb
+\\psf\Home\git\PokerGame\ConsoleApplication1\bin\Debug\ConsoleApplication1.exe
+\\psf\Home\git\PokerGame\ConsoleApplication1\bin\Debug\ConsoleApplication1.pdb
+\\psf\Home\git\PokerGame\ConsoleApplication1\obj\Debug\PokerGame.csprojResolveAssemblyReference.cache
+\\psf\Home\git\PokerGame\ConsoleApplication1\obj\Debug\ConsoleApplication1.Gamewindow.resources
+\\psf\Home\git\PokerGame\ConsoleApplication1\obj\Debug\ConsoleApplication1.Properties.Resources.resources
+\\psf\Home\git\PokerGame\ConsoleApplication1\obj\Debug\ConsoleApplication1.Startwindow.resources
+\\psf\Home\git\PokerGame\ConsoleApplication1\obj\Debug\PokerGame.csproj.GenerateResource.Cache

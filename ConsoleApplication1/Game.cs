@@ -11,9 +11,9 @@ namespace ConsoleApplication1
 
         public double smallBlind, bigBlind;
         public double chips;
-
-        Player player = new Player();
-        Dealer dealer = new Dealer();
+        Dealer dealer;
+        Player player;
+        
 
         public Game(double Chips, string name)
         {
@@ -22,8 +22,11 @@ namespace ConsoleApplication1
             chips = Chips;
             smallBlind = chips / 10;
             bigBlind = chips / 10 * 2;
+            player = new Player();
             player.setName(name);
             player.setCurrentChips(Chips);
+            
+            Dealer dealer = new Dealer(this);
 
 
 
@@ -38,6 +41,7 @@ namespace ConsoleApplication1
         }
         public void setSmallBlind(double smallblind)
         {
+            
             smallBlind = smallblind;
         }
 

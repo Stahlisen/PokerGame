@@ -11,6 +11,7 @@ namespace ConsoleApplication1
 
         string name;
         double currentchips;
+        PlayerHand hand = new PlayerHand();
 
         public Player ()
         {
@@ -34,6 +35,19 @@ namespace ConsoleApplication1
         public void setCurrentChips(double Chips)
         {
             currentchips = Chips;
+        }
+
+        public PlayerHand getHand()
+        {
+            return hand;
+        }
+
+        public void addToHand(string card)
+        {
+            hand.getCards().Add(card);
+
+
+
         }
 
 

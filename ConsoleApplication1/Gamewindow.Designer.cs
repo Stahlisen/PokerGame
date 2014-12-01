@@ -34,22 +34,26 @@
             this.playerinfo_panel = new System.Windows.Forms.Panel();
             this.player_card1 = new System.Windows.Forms.PictureBox();
             this.pokerTable_box = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.flop_1 = new System.Windows.Forms.PictureBox();
+            this.flop_3 = new System.Windows.Forms.PictureBox();
+            this.flop_2 = new System.Windows.Forms.PictureBox();
             this.player_card2 = new System.Windows.Forms.PictureBox();
             this.ai_card1 = new System.Windows.Forms.PictureBox();
             this.ai_card2 = new System.Windows.Forms.PictureBox();
             this.button1 = new System.Windows.Forms.Button();
+            this.turn = new System.Windows.Forms.PictureBox();
+            this.river = new System.Windows.Forms.PictureBox();
             this.playerinfo_panel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.player_card1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pokerTable_box)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.flop_1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.flop_3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.flop_2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.player_card2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ai_card1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ai_card2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.turn)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.river)).BeginInit();
             this.SuspendLayout();
             // 
             // player1_label
@@ -104,6 +108,7 @@
             this.player_card1.Location = new System.Drawing.Point(399, 450);
             this.player_card1.Name = "player_card1";
             this.player_card1.Size = new System.Drawing.Size(83, 128);
+            this.player_card1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.player_card1.TabIndex = 6;
             this.player_card1.TabStop = false;
             // 
@@ -118,37 +123,38 @@
             this.pokerTable_box.TabStop = false;
             this.pokerTable_box.Click += new System.EventHandler(this.pictureBox1_Click_1);
             // 
-            // pictureBox1
+            // flop_1
             // 
-            this.pictureBox1.Image = global::ConsoleApplication1.Properties.Resources.CARD_BACK;
-            this.pictureBox1.Location = new System.Drawing.Point(234, 230);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(62, 94);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 11;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click_2);
+            this.flop_1.Image = global::ConsoleApplication1.Properties.Resources.CARD_BACK;
+            this.flop_1.Location = new System.Drawing.Point(309, 230);
+            this.flop_1.Name = "flop_1";
+            this.flop_1.Size = new System.Drawing.Size(62, 94);
+            this.flop_1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.flop_1.TabIndex = 11;
+            this.flop_1.TabStop = false;
+            this.flop_1.Click += new System.EventHandler(this.pictureBox1_Click_2);
             // 
-            // pictureBox2
+            // flop_3
             // 
-            this.pictureBox2.Image = global::ConsoleApplication1.Properties.Resources.CARD_BACK;
-            this.pictureBox2.Location = new System.Drawing.Point(470, 244);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(62, 94);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 12;
-            this.pictureBox2.TabStop = false;
-            this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
+            this.flop_3.Image = global::ConsoleApplication1.Properties.Resources.CARD_BACK;
+            this.flop_3.Location = new System.Drawing.Point(445, 230);
+            this.flop_3.Name = "flop_3";
+            this.flop_3.Size = new System.Drawing.Size(62, 94);
+            this.flop_3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.flop_3.TabIndex = 12;
+            this.flop_3.TabStop = false;
+            this.flop_3.Click += new System.EventHandler(this.pictureBox2_Click);
             // 
-            // pictureBox3
+            // flop_2
             // 
-            this.pictureBox3.Image = global::ConsoleApplication1.Properties.Resources.CARD_BACK;
-            this.pictureBox3.Location = new System.Drawing.Point(359, 244);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(62, 94);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox3.TabIndex = 13;
-            this.pictureBox3.TabStop = false;
+            this.flop_2.Image = global::ConsoleApplication1.Properties.Resources.CARD_BACK;
+            this.flop_2.Location = new System.Drawing.Point(377, 230);
+            this.flop_2.Name = "flop_2";
+            this.flop_2.Size = new System.Drawing.Size(62, 94);
+            this.flop_2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.flop_2.TabIndex = 13;
+            this.flop_2.TabStop = false;
+            this.flop_2.Click += new System.EventHandler(this.pictureBox3_Click);
             // 
             // player_card2
             // 
@@ -188,18 +194,40 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
+            // turn
+            // 
+            this.turn.Image = global::ConsoleApplication1.Properties.Resources.CARD_BACK;
+            this.turn.Location = new System.Drawing.Point(546, 230);
+            this.turn.Name = "turn";
+            this.turn.Size = new System.Drawing.Size(62, 94);
+            this.turn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.turn.TabIndex = 18;
+            this.turn.TabStop = false;
+            // 
+            // river
+            // 
+            this.river.Image = global::ConsoleApplication1.Properties.Resources.CARD_BACK;
+            this.river.Location = new System.Drawing.Point(614, 230);
+            this.river.Name = "river";
+            this.river.Size = new System.Drawing.Size(62, 94);
+            this.river.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.river.TabIndex = 19;
+            this.river.TabStop = false;
+            // 
             // Gamewindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(961, 628);
+            this.Controls.Add(this.river);
+            this.Controls.Add(this.turn);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.ai_card2);
             this.Controls.Add(this.ai_card1);
             this.Controls.Add(this.player_card2);
-            this.Controls.Add(this.pictureBox3);
-            this.Controls.Add(this.pictureBox2);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.flop_2);
+            this.Controls.Add(this.flop_3);
+            this.Controls.Add(this.flop_1);
             this.Controls.Add(this.player_card1);
             this.Controls.Add(this.playerinfo_panel);
             this.Controls.Add(this.pokerTable_box);
@@ -212,12 +240,14 @@
             this.playerinfo_panel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.player_card1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pokerTable_box)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.flop_1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.flop_3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.flop_2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.player_card2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ai_card1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ai_card2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.turn)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.river)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -230,13 +260,15 @@
         private System.Windows.Forms.PictureBox pokerTable_box;
         private System.Windows.Forms.Panel playerinfo_panel;
         private System.Windows.Forms.PictureBox player_card1;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.PictureBox flop_1;
+        private System.Windows.Forms.PictureBox flop_3;
+        private System.Windows.Forms.PictureBox flop_2;
         private System.Windows.Forms.PictureBox player_card2;
         private System.Windows.Forms.PictureBox ai_card1;
         private System.Windows.Forms.PictureBox ai_card2;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.PictureBox turn;
+        private System.Windows.Forms.PictureBox river;
 
 
     }
