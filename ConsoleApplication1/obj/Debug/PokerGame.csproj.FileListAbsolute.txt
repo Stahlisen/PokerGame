@@ -26,3 +26,23 @@ C:\Users\BetaStåhl\Desktop\PokerGameGit\PokerGame\ConsoleApplication1\obj\Debug
 \\psf\Home\git\PokerGame\ConsoleApplication1\obj\Debug\ConsoleApplication1.Properties.Resources.resources
 \\psf\Home\git\PokerGame\ConsoleApplication1\obj\Debug\ConsoleApplication1.Startwindow.resources
 \\psf\Home\git\PokerGame\ConsoleApplication1\obj\Debug\PokerGame.csproj.GenerateResource.Cache
+\\neptunus.helix.ida.liu.se\frest460\Desktop\C#project\PokerGame\ConsoleApplication1\bin\Debug\ConsoleApplication1.exe.config
+\\neptunus.helix.ida.liu.se\frest460\Desktop\C#project\PokerGame\ConsoleApplication1\obj\Debug\ConsoleApplication1.exe
+\\neptunus.helix.ida.liu.se\frest460\Desktop\C#project\PokerGame\ConsoleApplication1\obj\Debug\ConsoleApplication1.pdb
+\\neptunus.helix.ida.liu.se\frest460\Desktop\C#project\PokerGame\ConsoleApplication1\obj\Debug\PokerGame.csprojResolveAssemblyReference.cache
+\\neptunus.helix.ida.liu.se\frest460\Desktop\C#project\PokerGame\ConsoleApplication1\obj\Debug\ConsoleApplication1.Gamewindow.resources
+\\neptunus.helix.ida.liu.se\frest460\Desktop\C#project\PokerGame\ConsoleApplication1\obj\Debug\ConsoleApplication1.Properties.Resources.resources
+\\neptunus.helix.ida.liu.se\frest460\Desktop\C#project\PokerGame\ConsoleApplication1\obj\Debug\ConsoleApplication1.Startwindow.resources
+\\neptunus.helix.ida.liu.se\frest460\Desktop\C#project\PokerGame\ConsoleApplication1\obj\Debug\PokerGame.csproj.GenerateResource.Cache
+\\neptunus.helix.ida.liu.se\frest460\Desktop\C#project\PokerGame\ConsoleApplication1\bin\Debug\ConsoleApplication1.exe
+\\neptunus.helix.ida.liu.se\frest460\Desktop\C#project\PokerGame\ConsoleApplication1\bin\Debug\ConsoleApplication1.pdb
+C:\Users\BetaStåhl\Desktop\last c#project\PokerGame\ConsoleApplication1\bin\Debug\ConsoleApplication1.exe.config
+C:\Users\BetaStåhl\Desktop\last c#project\PokerGame\ConsoleApplication1\obj\Debug\ConsoleApplication1.exe
+C:\Users\BetaStåhl\Desktop\last c#project\PokerGame\ConsoleApplication1\obj\Debug\ConsoleApplication1.pdb
+C:\Users\BetaStåhl\Desktop\last c#project\PokerGame\ConsoleApplication1\bin\Debug\ConsoleApplication1.exe
+C:\Users\BetaStåhl\Desktop\last c#project\PokerGame\ConsoleApplication1\bin\Debug\ConsoleApplication1.pdb
+C:\Users\BetaStåhl\Desktop\last c#project\PokerGame\ConsoleApplication1\obj\Debug\PokerGame.csprojResolveAssemblyReference.cache
+C:\Users\BetaStåhl\Desktop\last c#project\PokerGame\ConsoleApplication1\obj\Debug\ConsoleApplication1.Gamewindow.resources
+C:\Users\BetaStåhl\Desktop\last c#project\PokerGame\ConsoleApplication1\obj\Debug\ConsoleApplication1.Properties.Resources.resources
+C:\Users\BetaStåhl\Desktop\last c#project\PokerGame\ConsoleApplication1\obj\Debug\ConsoleApplication1.Startwindow.resources
+C:\Users\BetaStåhl\Desktop\last c#project\PokerGame\ConsoleApplication1\obj\Debug\PokerGame.csproj.GenerateResource.Cache

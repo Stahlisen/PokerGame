@@ -35,7 +35,7 @@ namespace ConsoleApplication1
             Console.WriteLine(game.getPlayer().getCurrentChips());
 
             this.Hide();
-            Gamewindow gamewindow = new Gamewindow();
+            Gamewindow gamewindow = new Gamewindow(game);
             gamewindow.ShowDialog();
 
 

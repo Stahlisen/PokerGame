@@ -14,6 +14,7 @@ namespace ConsoleApplication1
         Dealer dealer;
         Player player;
         
+        
 
         public Game(double Chips, string name)
         {
@@ -26,7 +27,9 @@ namespace ConsoleApplication1
             player.setName(name);
             player.setCurrentChips(Chips);
             
-            Dealer dealer = new Dealer(this);
+            dealer = new Dealer(this);
+            Gamewindow gamewindow = new Gamewindow(this);
+            
 
 
 
@@ -74,9 +77,6 @@ namespace ConsoleApplication1
 
             return dealer;
         }
-        
 
-        
- 
     }
 }

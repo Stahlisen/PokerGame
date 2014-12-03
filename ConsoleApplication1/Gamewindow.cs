@@ -7,88 +7,41 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace ConsoleApplication1
 {
     public partial class Gamewindow : Form
     {
 
+        Game currentgame;
         
-        
-        public Gamewindow()
+        public Gamewindow(Game game)
         {
             InitializeComponent();
-            
 
             //Setting parent for labels
             player1_label.Parent = playerinfo_panel;
             player1chips_label.Parent = playerinfo_panel;
             desc_chips1_label.Parent = playerinfo_panel;
-            game.getDealer().getDeck().shuffleDeck();
-
             
+            currentgame = game;
         }
 
-        
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void player1_label_Click(object sender, EventArgs e)
-        {
-
-        }
-
+ 
         private void Gamewindow_Load(object sender, EventArgs e)
         {
-            player1_label.Text = game.getPlayer().getName();
-            player1chips_label.Text = Convert.ToString(game.getPlayer().getCurrentChips());
-
-            
+            player1_label.Text = currentgame.getPlayer().getName();
+            player1chips_label.Text = Convert.ToString(currentgame.getPlayer().getCurrentChips());
         }
 
-        private void pictureBox1_Click(object sender, EventArgs e)
+        public void newRound()
         {
-
+            //Set starthand button as enabled to enable new starthand for the new round
+            starthand_button.Enabled = true;
         }
 
-        private void pictureBox1_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void pictureBox2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void pictureBox1_Click_2(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button1_Click_1(object sender, EventArgs e)
-        {
-            
-            
-           
-            String filename = game.getDealer().getDeck().getTopCard();
-            Console.WriteLine(filename);
-
-            player_card1.Image = Image.FromFile("../cards/" + filename + ".png");
-            
-            
-        }
-
-        private void pictureBox3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        //Getters for acessing pictureboxes.
-
+       
         public PictureBox getPlayerCard1()
         {
 
@@ -143,9 +96,39 @@ namespace ConsoleApplication1
             return river;
         }
 
+        private void starthand_button_Click(object sender, EventArgs e)
+        {
+            //Load the images of player hand cards
+            player_card1.Image = Image.FromFile(currentgame.getDealer().startHand()[0]);
+            player_card2.Image = Image.FromFile(currentgame.getDealer().startHand()[1]);
 
+            //Disable starthandbutton
+            starthand_button.Enabled = false;
+        }
 
+        private void flop_button_Click(object sender, EventArgs e)
+        {
+            flop_1.Image = Image.FromFile(currentgame.getDealer().flop()[0]);
+            flop_2.Image = Image.FromFile(currentgame.getDealer().flop()[1]);
+            flop_3.Image = Image.FromFile(currentgame.getDealer().flop()[2]);
 
-        
+            flop_button.Enabled = false;
+
+        }
+
+        private void turn_button_Click(object sender, EventArgs e)
+        {
+            turn.Image = Image.FromFile(currentgame.getDealer().turn());
+
+            turn_button.Enabled = false;
+        }
+
+        private void river_button_Click(object sender, EventArgs e)
+        {
+            river.Image = Image.FromFile(currentgame.getDealer().river());
+
+            river_button.Enabled = false;
+        }
+
     }
 }
