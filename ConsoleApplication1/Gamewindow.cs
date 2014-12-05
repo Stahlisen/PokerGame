@@ -24,6 +24,7 @@ namespace ConsoleApplication1
             player1_label.Parent = playerinfo_panel;
             player1chips_label.Parent = playerinfo_panel;
             desc_chips1_label.Parent = playerinfo_panel;
+            desc_pot.Parent = pokerTable_box;
             
             currentgame = game;
         }
@@ -33,15 +34,13 @@ namespace ConsoleApplication1
         {
             player1_label.Text = currentgame.getPlayer().getName();
             player1chips_label.Text = Convert.ToString(currentgame.getPlayer().getCurrentChips());
+            ai_label.Text = currentgame.getAiPlayer().getName();
+            aiplayerchips_label.Text = Convert.ToString(currentgame.getAiPlayer().getCurrentChips());
+            currentgame.initiateGameWindow(this);
+            currentgame.newRound();
+
         }
 
-        public void newRound()
-        {
-            //Set starthand button as enabled to enable new starthand for the new round
-            starthand_button.Enabled = true;
-        }
-
-       
         public PictureBox getPlayerCard1()
         {
 
@@ -99,9 +98,10 @@ namespace ConsoleApplication1
         private void starthand_button_Click(object sender, EventArgs e)
         {
             //Load the images of player hand cards
-            player_card1.Image = Image.FromFile(currentgame.getDealer().startHand()[0]);
-            player_card2.Image = Image.FromFile(currentgame.getDealer().startHand()[1]);
-
+            player_card1.Image = Image.FromFile(currentgame.getDealer().startHand()[0][0]);
+            player_card2.Image = Image.FromFile(currentgame.getDealer().startHand()[0][1]);
+            ai_card1.Image = Image.FromFile(currentgame.getDealer().startHand()[1][0]);
+            ai_card2.Image = Image.FromFile(currentgame.getDealer().startHand()[1][1]);
             //Disable starthandbutton
             starthand_button.Enabled = false;
         }
@@ -128,6 +128,11 @@ namespace ConsoleApplication1
             river.Image = Image.FromFile(currentgame.getDealer().river());
 
             river_button.Enabled = false;
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
         }
 
     }

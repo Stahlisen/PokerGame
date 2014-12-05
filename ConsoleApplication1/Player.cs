@@ -9,9 +9,9 @@ namespace ConsoleApplication1
     public class Player
     {
 
-        string name;
-        double currentchips;
-        PlayerHand hand = new PlayerHand();
+        public string name;
+        public double currentchips;
+        public List<Card> hand = new List<Card>();
 
         public Player ()
         {
@@ -19,36 +19,6 @@ namespace ConsoleApplication1
             
         }
 
-        public string getName()
-        {
-            return name;
-        }
-        public void setName(string Name)
-        {
-            name = Name;
-        }
-
-        public double getCurrentChips()
-        {
-            return currentchips;
-        }
-        public void setCurrentChips(double Chips)
-        {
-            currentchips = Chips;
-        }
-
-        public PlayerHand getHand()
-        {
-            return hand;
-        }
-
-        public void addToHand(string card)
-        {
-            hand.getCards().Add(card);
-
-
-
-        }
 
 
     }

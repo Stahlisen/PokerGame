@@ -43,6 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AIplayer.cs" />
     <Compile Include="Card.cs" />
     <Compile Include="CardDeck.cs" />
     <Compile Include="Dealer.cs" />
@@ -53,8 +54,8 @@
     <Compile Include="Gamewindow.Designer.cs">
       <DependentUpon>Gamewindow.cs</DependentUpon>
     </Compile>
+    <Compile Include="Humanplayer.cs" />
     <Compile Include="Player.cs" />
-    <Compile Include="PlayerHand.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

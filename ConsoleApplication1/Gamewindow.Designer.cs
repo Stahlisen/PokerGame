@@ -46,6 +46,12 @@
             this.flop_button = new System.Windows.Forms.Button();
             this.turn_button = new System.Windows.Forms.Button();
             this.river_button = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.ai_label = new System.Windows.Forms.Label();
+            this.aiplayerchips_label = new System.Windows.Forms.Label();
+            this.desc_chips2_label = new System.Windows.Forms.Label();
+            this.desc_pot = new System.Windows.Forms.Label();
+            this.currentpot = new System.Windows.Forms.Label();
             this.playerinfo_panel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.river)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.turn)).BeginInit();
@@ -57,6 +63,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.flop_1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.player_card1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pokerTable_box)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // player1_label
@@ -245,11 +252,84 @@
             this.river_button.UseVisualStyleBackColor = true;
             this.river_button.Click += new System.EventHandler(this.river_button_Click);
             // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.ai_label);
+            this.panel1.Controls.Add(this.aiplayerchips_label);
+            this.panel1.Controls.Add(this.desc_chips2_label);
+            this.panel1.Location = new System.Drawing.Point(779, 2);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(180, 105);
+            this.panel1.TabIndex = 23;
+            // 
+            // ai_label
+            // 
+            this.ai_label.AutoSize = true;
+            this.ai_label.BackColor = System.Drawing.Color.Transparent;
+            this.ai_label.Font = new System.Drawing.Font("Trebuchet MS", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ai_label.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.ai_label.Location = new System.Drawing.Point(3, 0);
+            this.ai_label.Name = "ai_label";
+            this.ai_label.Size = new System.Drawing.Size(68, 22);
+            this.ai_label.TabIndex = 0;
+            this.ai_label.Text = "ai_label";
+            // 
+            // aiplayerchips_label
+            // 
+            this.aiplayerchips_label.AutoSize = true;
+            this.aiplayerchips_label.BackColor = System.Drawing.Color.Transparent;
+            this.aiplayerchips_label.Font = new System.Drawing.Font("Trebuchet MS", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.aiplayerchips_label.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.aiplayerchips_label.Location = new System.Drawing.Point(58, 45);
+            this.aiplayerchips_label.Name = "aiplayerchips_label";
+            this.aiplayerchips_label.Size = new System.Drawing.Size(54, 22);
+            this.aiplayerchips_label.TabIndex = 2;
+            this.aiplayerchips_label.Text = "label1";
+            // 
+            // desc_chips2_label
+            // 
+            this.desc_chips2_label.AutoSize = true;
+            this.desc_chips2_label.BackColor = System.Drawing.Color.Transparent;
+            this.desc_chips2_label.Font = new System.Drawing.Font("Trebuchet MS", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.desc_chips2_label.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.desc_chips2_label.Location = new System.Drawing.Point(3, 45);
+            this.desc_chips2_label.Name = "desc_chips2_label";
+            this.desc_chips2_label.Size = new System.Drawing.Size(56, 22);
+            this.desc_chips2_label.TabIndex = 3;
+            this.desc_chips2_label.Text = "Chips:";
+            // 
+            // desc_pot
+            // 
+            this.desc_pot.AutoSize = true;
+            this.desc_pot.BackColor = System.Drawing.Color.Transparent;
+            this.desc_pot.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.desc_pot.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.desc_pot.Location = new System.Drawing.Point(694, 269);
+            this.desc_pot.Name = "desc_pot";
+            this.desc_pot.Size = new System.Drawing.Size(95, 17);
+            this.desc_pot.TabIndex = 24;
+            this.desc_pot.Text = "Current pot:";
+            this.desc_pot.Click += new System.EventHandler(this.label1_Click);
+            // 
+            // currentpot
+            // 
+            this.currentpot.AutoSize = true;
+            this.currentpot.BackColor = System.Drawing.Color.Transparent;
+            this.currentpot.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.currentpot.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.currentpot.Location = new System.Drawing.Point(795, 269);
+            this.currentpot.Name = "currentpot";
+            this.currentpot.Size = new System.Drawing.Size(0, 17);
+            this.currentpot.TabIndex = 25;
+            // 
             // Gamewindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(961, 628);
+            this.Controls.Add(this.currentpot);
+            this.Controls.Add(this.desc_pot);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.river_button);
             this.Controls.Add(this.turn_button);
             this.Controls.Add(this.flop_button);
@@ -282,14 +362,17 @@
             ((System.ComponentModel.ISupportInitialize)(this.flop_1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.player_card1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pokerTable_box)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
 
         private System.Windows.Forms.Label player1_label;
-        private System.Windows.Forms.Label player1chips_label;
+        public System.Windows.Forms.Label player1chips_label;
         private System.Windows.Forms.Label desc_chips1_label;
         private System.Windows.Forms.PictureBox pokerTable_box;
         private System.Windows.Forms.Panel playerinfo_panel;
@@ -306,6 +389,12 @@
         private System.Windows.Forms.Button flop_button;
         private System.Windows.Forms.Button turn_button;
         private System.Windows.Forms.Button river_button;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label ai_label;
+        public System.Windows.Forms.Label aiplayerchips_label;
+        private System.Windows.Forms.Label desc_chips2_label;
+        private System.Windows.Forms.Label desc_pot;
+        private System.Windows.Forms.Label currentpot;
 
 
     }

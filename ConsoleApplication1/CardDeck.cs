@@ -13,6 +13,7 @@ namespace ConsoleApplication1
         private int currentCard;
         private Random rand;
         private const int maxcards = 52;
+        
 
 
         public CardDeck()
@@ -46,14 +47,13 @@ namespace ConsoleApplication1
             }
         }
 
-        public string getTopCard()
+        public Card getTopCard()
         {
 
-            if (currentCard < deck.Length)
+            
                 return deck[currentCard++].getCard();
-            else
-                return "Out of cards";
 
+            
             
         }
     }

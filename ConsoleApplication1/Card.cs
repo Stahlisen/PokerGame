@@ -19,9 +19,19 @@ namespace ConsoleApplication1
             suit = cardSuit;
         }
 
-        public string getCard()
+        public Card getCard()
         {
-            return value + "of" + suit;
+            return this;
+        }
+
+        public string getValue()
+        {
+            return value;
+        }
+
+        public string getSuit()
+        {
+            return suit;
         }
 
 
