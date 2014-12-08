@@ -66,10 +66,6 @@ namespace ConsoleApplication1
             enteredchips = Double.Parse(chips_textbox.Text);
 
             start_button.Enabled = !string.IsNullOrWhiteSpace(name_textbox.Text +  chips_textbox.Text);
-
-
-            
-
         }
 
 

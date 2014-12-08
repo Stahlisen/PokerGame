@@ -48,6 +48,7 @@
     <Compile Include="CardDeck.cs" />
     <Compile Include="Dealer.cs" />
     <Compile Include="Game.cs" />
+    <Compile Include="Gameanalyzer.cs" />
     <Compile Include="Gamewindow.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -408,6 +409,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\cards\TwoofSpades.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\chips\black100.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

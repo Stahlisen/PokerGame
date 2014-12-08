@@ -113,6 +113,16 @@ namespace ConsoleApplication1.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap black100 {
+            get {
+                object obj = ResourceManager.GetObject("black100", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap CLUBS_2 {
             get {
                 object obj = ResourceManager.GetObject("CLUBS_2", resourceCulture);

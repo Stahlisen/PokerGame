@@ -32,7 +32,12 @@
             this.player1chips_label = new System.Windows.Forms.Label();
             this.desc_chips1_label = new System.Windows.Forms.Label();
             this.playerinfo_panel = new System.Windows.Forms.Panel();
-            this.starthand_button = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.ai_label = new System.Windows.Forms.Label();
+            this.aiplayerchips_label = new System.Windows.Forms.Label();
+            this.desc_chips2_label = new System.Windows.Forms.Label();
+            this.desc_pot = new System.Windows.Forms.Label();
+            this.currentpot = new System.Windows.Forms.Label();
             this.river = new System.Windows.Forms.PictureBox();
             this.turn = new System.Windows.Forms.PictureBox();
             this.ai_card2 = new System.Windows.Forms.PictureBox();
@@ -43,16 +48,21 @@
             this.flop_1 = new System.Windows.Forms.PictureBox();
             this.player_card1 = new System.Windows.Forms.PictureBox();
             this.pokerTable_box = new System.Windows.Forms.PictureBox();
-            this.flop_button = new System.Windows.Forms.Button();
-            this.turn_button = new System.Windows.Forms.Button();
-            this.river_button = new System.Windows.Forms.Button();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.ai_label = new System.Windows.Forms.Label();
-            this.aiplayerchips_label = new System.Windows.Forms.Label();
-            this.desc_chips2_label = new System.Windows.Forms.Label();
-            this.desc_pot = new System.Windows.Forms.Label();
-            this.currentpot = new System.Windows.Forms.Label();
+            this.eventtext_label = new System.Windows.Forms.Label();
+            this.check_button = new System.Windows.Forms.Button();
+            this.fold_button = new System.Windows.Forms.Button();
+            this.bet_button = new System.Windows.Forms.Button();
+            this.call_button = new System.Windows.Forms.Button();
+            this.bet_amount = new System.Windows.Forms.NumericUpDown();
+            this.player_bet_amount = new System.Windows.Forms.Label();
+            this.aiplayer_bet_amount = new System.Windows.Forms.Label();
+            this.call_button_ai = new System.Windows.Forms.Button();
+            this.bet_button_ai = new System.Windows.Forms.Button();
+            this.fold_button_ai = new System.Windows.Forms.Button();
+            this.check_button_ai = new System.Windows.Forms.Button();
+            this.bet_amount_ai = new System.Windows.Forms.NumericUpDown();
             this.playerinfo_panel.SuspendLayout();
+            this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.river)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.turn)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ai_card2)).BeginInit();
@@ -63,7 +73,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.flop_1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.player_card1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pokerTable_box)).BeginInit();
-            this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bet_amount)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bet_amount_ai)).BeginInit();
             this.SuspendLayout();
             // 
             // player1_label
@@ -112,15 +123,75 @@
             this.playerinfo_panel.Size = new System.Drawing.Size(180, 105);
             this.playerinfo_panel.TabIndex = 5;
             // 
-            // starthand_button
+            // panel1
             // 
-            this.starthand_button.Location = new System.Drawing.Point(445, 421);
-            this.starthand_button.Name = "starthand_button";
-            this.starthand_button.Size = new System.Drawing.Size(101, 23);
-            this.starthand_button.TabIndex = 17;
-            this.starthand_button.Text = "Get starthand";
-            this.starthand_button.UseVisualStyleBackColor = true;
-            this.starthand_button.Click += new System.EventHandler(this.starthand_button_Click);
+            this.panel1.Controls.Add(this.ai_label);
+            this.panel1.Controls.Add(this.aiplayerchips_label);
+            this.panel1.Controls.Add(this.desc_chips2_label);
+            this.panel1.Location = new System.Drawing.Point(779, 2);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(180, 105);
+            this.panel1.TabIndex = 23;
+            // 
+            // ai_label
+            // 
+            this.ai_label.AutoSize = true;
+            this.ai_label.BackColor = System.Drawing.Color.Transparent;
+            this.ai_label.Font = new System.Drawing.Font("Trebuchet MS", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ai_label.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.ai_label.Location = new System.Drawing.Point(3, 0);
+            this.ai_label.Name = "ai_label";
+            this.ai_label.Size = new System.Drawing.Size(68, 22);
+            this.ai_label.TabIndex = 0;
+            this.ai_label.Text = "ai_label";
+            // 
+            // aiplayerchips_label
+            // 
+            this.aiplayerchips_label.AutoSize = true;
+            this.aiplayerchips_label.BackColor = System.Drawing.Color.Transparent;
+            this.aiplayerchips_label.Font = new System.Drawing.Font("Trebuchet MS", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.aiplayerchips_label.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.aiplayerchips_label.Location = new System.Drawing.Point(58, 45);
+            this.aiplayerchips_label.Name = "aiplayerchips_label";
+            this.aiplayerchips_label.Size = new System.Drawing.Size(54, 22);
+            this.aiplayerchips_label.TabIndex = 2;
+            this.aiplayerchips_label.Text = "label1";
+            // 
+            // desc_chips2_label
+            // 
+            this.desc_chips2_label.AutoSize = true;
+            this.desc_chips2_label.BackColor = System.Drawing.Color.Transparent;
+            this.desc_chips2_label.Font = new System.Drawing.Font("Trebuchet MS", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.desc_chips2_label.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.desc_chips2_label.Location = new System.Drawing.Point(3, 45);
+            this.desc_chips2_label.Name = "desc_chips2_label";
+            this.desc_chips2_label.Size = new System.Drawing.Size(56, 22);
+            this.desc_chips2_label.TabIndex = 3;
+            this.desc_chips2_label.Text = "Chips:";
+            // 
+            // desc_pot
+            // 
+            this.desc_pot.AutoSize = true;
+            this.desc_pot.BackColor = System.Drawing.Color.Transparent;
+            this.desc_pot.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.desc_pot.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.desc_pot.Location = new System.Drawing.Point(694, 269);
+            this.desc_pot.Name = "desc_pot";
+            this.desc_pot.Size = new System.Drawing.Size(95, 17);
+            this.desc_pot.TabIndex = 24;
+            this.desc_pot.Text = "Current pot:";
+            this.desc_pot.Click += new System.EventHandler(this.label1_Click);
+            // 
+            // currentpot
+            // 
+            this.currentpot.AutoSize = true;
+            this.currentpot.BackColor = System.Drawing.Color.Transparent;
+            this.currentpot.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.currentpot.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.currentpot.Location = new System.Drawing.Point(795, 269);
+            this.currentpot.Name = "currentpot";
+            this.currentpot.Size = new System.Drawing.Size(0, 17);
+            this.currentpot.TabIndex = 25;
             // 
             // river
             // 
@@ -222,120 +293,165 @@
             this.pokerTable_box.TabIndex = 4;
             this.pokerTable_box.TabStop = false;
             // 
-            // flop_button
+            // eventtext_label
             // 
-            this.flop_button.Location = new System.Drawing.Point(377, 341);
-            this.flop_button.Name = "flop_button";
-            this.flop_button.Size = new System.Drawing.Size(62, 23);
-            this.flop_button.TabIndex = 20;
-            this.flop_button.Text = "Get flop";
-            this.flop_button.UseVisualStyleBackColor = true;
-            this.flop_button.Click += new System.EventHandler(this.flop_button_Click);
+            this.eventtext_label.AutoSize = true;
+            this.eventtext_label.BackColor = System.Drawing.Color.Transparent;
+            this.eventtext_label.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.eventtext_label.Location = new System.Drawing.Point(109, 273);
+            this.eventtext_label.Name = "eventtext_label";
+            this.eventtext_label.Size = new System.Drawing.Size(82, 13);
+            this.eventtext_label.TabIndex = 26;
+            this.eventtext_label.Text = "Game is starting";
             // 
-            // turn_button
+            // check_button
             // 
-            this.turn_button.Location = new System.Drawing.Point(546, 341);
-            this.turn_button.Name = "turn_button";
-            this.turn_button.Size = new System.Drawing.Size(61, 23);
-            this.turn_button.TabIndex = 21;
-            this.turn_button.Text = "Get turn";
-            this.turn_button.UseVisualStyleBackColor = true;
-            this.turn_button.Click += new System.EventHandler(this.turn_button_Click);
+            this.check_button.Enabled = false;
+            this.check_button.Location = new System.Drawing.Point(874, 493);
+            this.check_button.Name = "check_button";
+            this.check_button.Size = new System.Drawing.Size(75, 23);
+            this.check_button.TabIndex = 27;
+            this.check_button.Text = "Check";
+            this.check_button.UseVisualStyleBackColor = true;
             // 
-            // river_button
+            // fold_button
             // 
-            this.river_button.Location = new System.Drawing.Point(614, 341);
-            this.river_button.Name = "river_button";
-            this.river_button.Size = new System.Drawing.Size(62, 23);
-            this.river_button.TabIndex = 22;
-            this.river_button.Text = "Get river";
-            this.river_button.UseVisualStyleBackColor = true;
-            this.river_button.Click += new System.EventHandler(this.river_button_Click);
+            this.fold_button.Enabled = false;
+            this.fold_button.Location = new System.Drawing.Point(874, 464);
+            this.fold_button.Name = "fold_button";
+            this.fold_button.Size = new System.Drawing.Size(75, 23);
+            this.fold_button.TabIndex = 28;
+            this.fold_button.Text = "Fold";
+            this.fold_button.UseVisualStyleBackColor = true;
+            this.fold_button.Click += new System.EventHandler(this.fold_button_Click);
             // 
-            // panel1
+            // bet_button
             // 
-            this.panel1.Controls.Add(this.ai_label);
-            this.panel1.Controls.Add(this.aiplayerchips_label);
-            this.panel1.Controls.Add(this.desc_chips2_label);
-            this.panel1.Location = new System.Drawing.Point(779, 2);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(180, 105);
-            this.panel1.TabIndex = 23;
+            this.bet_button.Enabled = false;
+            this.bet_button.Location = new System.Drawing.Point(775, 464);
+            this.bet_button.Name = "bet_button";
+            this.bet_button.Size = new System.Drawing.Size(75, 23);
+            this.bet_button.TabIndex = 29;
+            this.bet_button.Text = "Bet";
+            this.bet_button.UseVisualStyleBackColor = true;
+            this.bet_button.Click += new System.EventHandler(this.bet_button_Click);
             // 
-            // ai_label
+            // call_button
             // 
-            this.ai_label.AutoSize = true;
-            this.ai_label.BackColor = System.Drawing.Color.Transparent;
-            this.ai_label.Font = new System.Drawing.Font("Trebuchet MS", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ai_label.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.ai_label.Location = new System.Drawing.Point(3, 0);
-            this.ai_label.Name = "ai_label";
-            this.ai_label.Size = new System.Drawing.Size(68, 22);
-            this.ai_label.TabIndex = 0;
-            this.ai_label.Text = "ai_label";
+            this.call_button.Enabled = false;
+            this.call_button.Location = new System.Drawing.Point(874, 406);
+            this.call_button.Name = "call_button";
+            this.call_button.Size = new System.Drawing.Size(75, 23);
+            this.call_button.TabIndex = 31;
+            this.call_button.Text = "Call";
+            this.call_button.UseVisualStyleBackColor = true;
+            this.call_button.Click += new System.EventHandler(this.call_button_Click);
             // 
-            // aiplayerchips_label
+            // bet_amount
             // 
-            this.aiplayerchips_label.AutoSize = true;
-            this.aiplayerchips_label.BackColor = System.Drawing.Color.Transparent;
-            this.aiplayerchips_label.Font = new System.Drawing.Font("Trebuchet MS", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.aiplayerchips_label.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.aiplayerchips_label.Location = new System.Drawing.Point(58, 45);
-            this.aiplayerchips_label.Name = "aiplayerchips_label";
-            this.aiplayerchips_label.Size = new System.Drawing.Size(54, 22);
-            this.aiplayerchips_label.TabIndex = 2;
-            this.aiplayerchips_label.Text = "label1";
+            this.bet_amount.Enabled = false;
+            this.bet_amount.Location = new System.Drawing.Point(730, 493);
+            this.bet_amount.Name = "bet_amount";
+            this.bet_amount.Size = new System.Drawing.Size(120, 20);
+            this.bet_amount.TabIndex = 32;
             // 
-            // desc_chips2_label
+            // player_bet_amount
             // 
-            this.desc_chips2_label.AutoSize = true;
-            this.desc_chips2_label.BackColor = System.Drawing.Color.Transparent;
-            this.desc_chips2_label.Font = new System.Drawing.Font("Trebuchet MS", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.desc_chips2_label.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.desc_chips2_label.Location = new System.Drawing.Point(3, 45);
-            this.desc_chips2_label.Name = "desc_chips2_label";
-            this.desc_chips2_label.Size = new System.Drawing.Size(56, 22);
-            this.desc_chips2_label.TabIndex = 3;
-            this.desc_chips2_label.Text = "Chips:";
+            this.player_bet_amount.AutoSize = true;
+            this.player_bet_amount.BackColor = System.Drawing.Color.Transparent;
+            this.player_bet_amount.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.player_bet_amount.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.player_bet_amount.Location = new System.Drawing.Point(611, 391);
+            this.player_bet_amount.Name = "player_bet_amount";
+            this.player_bet_amount.Size = new System.Drawing.Size(0, 17);
+            this.player_bet_amount.TabIndex = 33;
             // 
-            // desc_pot
+            // aiplayer_bet_amount
             // 
-            this.desc_pot.AutoSize = true;
-            this.desc_pot.BackColor = System.Drawing.Color.Transparent;
-            this.desc_pot.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.desc_pot.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.desc_pot.Location = new System.Drawing.Point(694, 269);
-            this.desc_pot.Name = "desc_pot";
-            this.desc_pot.Size = new System.Drawing.Size(95, 17);
-            this.desc_pot.TabIndex = 24;
-            this.desc_pot.Text = "Current pot:";
-            this.desc_pot.Click += new System.EventHandler(this.label1_Click);
+            this.aiplayer_bet_amount.AutoSize = true;
+            this.aiplayer_bet_amount.BackColor = System.Drawing.Color.Transparent;
+            this.aiplayer_bet_amount.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.aiplayer_bet_amount.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.aiplayer_bet_amount.Location = new System.Drawing.Point(583, 164);
+            this.aiplayer_bet_amount.Name = "aiplayer_bet_amount";
+            this.aiplayer_bet_amount.Size = new System.Drawing.Size(0, 17);
+            this.aiplayer_bet_amount.TabIndex = 34;
             // 
-            // currentpot
+            // call_button_ai
             // 
-            this.currentpot.AutoSize = true;
-            this.currentpot.BackColor = System.Drawing.Color.Transparent;
-            this.currentpot.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.currentpot.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.currentpot.Location = new System.Drawing.Point(795, 269);
-            this.currentpot.Name = "currentpot";
-            this.currentpot.Size = new System.Drawing.Size(0, 17);
-            this.currentpot.TabIndex = 25;
+            this.call_button_ai.Enabled = false;
+            this.call_button_ai.Location = new System.Drawing.Point(12, 12);
+            this.call_button_ai.Name = "call_button_ai";
+            this.call_button_ai.Size = new System.Drawing.Size(75, 23);
+            this.call_button_ai.TabIndex = 39;
+            this.call_button_ai.Text = "Call";
+            this.call_button_ai.UseVisualStyleBackColor = true;
+            this.call_button_ai.Click += new System.EventHandler(this.call_button_ai_Click);
+            // 
+            // bet_button_ai
+            // 
+            this.bet_button_ai.Enabled = false;
+            this.bet_button_ai.Location = new System.Drawing.Point(112, 70);
+            this.bet_button_ai.Name = "bet_button_ai";
+            this.bet_button_ai.Size = new System.Drawing.Size(75, 23);
+            this.bet_button_ai.TabIndex = 37;
+            this.bet_button_ai.Text = "Bet";
+            this.bet_button_ai.UseVisualStyleBackColor = true;
+            this.bet_button_ai.Click += new System.EventHandler(this.bet_button_ai_Click);
+            // 
+            // fold_button_ai
+            // 
+            this.fold_button_ai.Enabled = false;
+            this.fold_button_ai.Location = new System.Drawing.Point(12, 70);
+            this.fold_button_ai.Name = "fold_button_ai";
+            this.fold_button_ai.Size = new System.Drawing.Size(75, 23);
+            this.fold_button_ai.TabIndex = 36;
+            this.fold_button_ai.Text = "Fold";
+            this.fold_button_ai.UseVisualStyleBackColor = true;
+            this.fold_button_ai.Click += new System.EventHandler(this.fold_button_ai_Click);
+            // 
+            // check_button_ai
+            // 
+            this.check_button_ai.Enabled = false;
+            this.check_button_ai.Location = new System.Drawing.Point(12, 99);
+            this.check_button_ai.Name = "check_button_ai";
+            this.check_button_ai.Size = new System.Drawing.Size(75, 23);
+            this.check_button_ai.TabIndex = 35;
+            this.check_button_ai.Text = "Check";
+            this.check_button_ai.UseVisualStyleBackColor = true;
+            // 
+            // bet_amount_ai
+            // 
+            this.bet_amount_ai.Enabled = false;
+            this.bet_amount_ai.Location = new System.Drawing.Point(112, 102);
+            this.bet_amount_ai.Name = "bet_amount_ai";
+            this.bet_amount_ai.Size = new System.Drawing.Size(120, 20);
+            this.bet_amount_ai.TabIndex = 40;
+            this.bet_amount_ai.ValueChanged += new System.EventHandler(this.numericUpDown1_ValueChanged);
             // 
             // Gamewindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(961, 628);
+            this.Controls.Add(this.bet_amount_ai);
+            this.Controls.Add(this.call_button_ai);
+            this.Controls.Add(this.bet_button_ai);
+            this.Controls.Add(this.fold_button_ai);
+            this.Controls.Add(this.check_button_ai);
+            this.Controls.Add(this.aiplayer_bet_amount);
+            this.Controls.Add(this.player_bet_amount);
+            this.Controls.Add(this.bet_amount);
+            this.Controls.Add(this.call_button);
+            this.Controls.Add(this.bet_button);
+            this.Controls.Add(this.fold_button);
+            this.Controls.Add(this.check_button);
+            this.Controls.Add(this.eventtext_label);
             this.Controls.Add(this.currentpot);
             this.Controls.Add(this.desc_pot);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.river_button);
-            this.Controls.Add(this.turn_button);
-            this.Controls.Add(this.flop_button);
             this.Controls.Add(this.river);
             this.Controls.Add(this.turn);
-            this.Controls.Add(this.starthand_button);
             this.Controls.Add(this.ai_card2);
             this.Controls.Add(this.ai_card1);
             this.Controls.Add(this.player_card2);
@@ -352,6 +468,8 @@
             this.Load += new System.EventHandler(this.Gamewindow_Load);
             this.playerinfo_panel.ResumeLayout(false);
             this.playerinfo_panel.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.river)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.turn)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ai_card2)).EndInit();
@@ -362,8 +480,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.flop_1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.player_card1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pokerTable_box)).EndInit();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bet_amount)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bet_amount_ai)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -377,24 +495,33 @@
         private System.Windows.Forms.PictureBox pokerTable_box;
         private System.Windows.Forms.Panel playerinfo_panel;
         public System.Windows.Forms.PictureBox player_card1;
-        private System.Windows.Forms.PictureBox flop_1;
-        private System.Windows.Forms.PictureBox flop_3;
-        private System.Windows.Forms.PictureBox flop_2;
-        private System.Windows.Forms.PictureBox player_card2;
-        private System.Windows.Forms.PictureBox ai_card1;
-        private System.Windows.Forms.PictureBox ai_card2;
-        public System.Windows.Forms.Button starthand_button;
-        private System.Windows.Forms.PictureBox turn;
-        private System.Windows.Forms.PictureBox river;
-        private System.Windows.Forms.Button flop_button;
-        private System.Windows.Forms.Button turn_button;
-        private System.Windows.Forms.Button river_button;
+        public System.Windows.Forms.PictureBox flop_1;
+        public System.Windows.Forms.PictureBox flop_3;
+        public System.Windows.Forms.PictureBox flop_2;
+        public System.Windows.Forms.PictureBox player_card2;
+        public System.Windows.Forms.PictureBox ai_card1;
+        public System.Windows.Forms.PictureBox ai_card2;
+        public System.Windows.Forms.PictureBox turn;
+        public System.Windows.Forms.PictureBox river;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label ai_label;
         public System.Windows.Forms.Label aiplayerchips_label;
         private System.Windows.Forms.Label desc_chips2_label;
         private System.Windows.Forms.Label desc_pot;
-        private System.Windows.Forms.Label currentpot;
+        public System.Windows.Forms.Label currentpot;
+        public System.Windows.Forms.Label eventtext_label;
+        public System.Windows.Forms.Button check_button;
+        public System.Windows.Forms.Button fold_button;
+        public System.Windows.Forms.Button bet_button;
+        public System.Windows.Forms.Button call_button;
+        public System.Windows.Forms.NumericUpDown bet_amount;
+        public System.Windows.Forms.Label player_bet_amount;
+        public System.Windows.Forms.Label aiplayer_bet_amount;
+        public System.Windows.Forms.Button call_button_ai;
+        public System.Windows.Forms.Button bet_button_ai;
+        public System.Windows.Forms.Button fold_button_ai;
+        public System.Windows.Forms.Button check_button_ai;
+        public System.Windows.Forms.NumericUpDown bet_amount_ai;
 
 
     }

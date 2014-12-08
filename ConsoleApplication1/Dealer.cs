@@ -17,21 +17,45 @@ namespace ConsoleApplication1
        Card turncard;
        Card rivercard;
        string path = @"..\cards\";
+       Gamewindow gamewindow;
+        
 
         public Dealer(Game _game)
         {
             currentgame = _game;
-        }
 
+            
+            
+        }
         public CardDeck getDeck()
         {
             return deck;
         }
 
-       
-        public List<List<string>> startHand()
+        public void resetCards()
         {
-            
+            Console.WriteLine("Reset");
+            currentgame.getPlayer().getHand().Clear();
+            currentgame.getAiPlayer().getHand().Clear();
+            string backcard = "BackofCard.png";
+            string path_backcard = Path.Combine(path, backcard);
+
+            gamewindow.changePictureBox(gamewindow.player_card1, path_backcard);
+            gamewindow.changePictureBox(gamewindow.player_card2, path_backcard);
+            gamewindow.changePictureBox(gamewindow.ai_card1, path_backcard);
+            gamewindow.changePictureBox(gamewindow.ai_card2, path_backcard);
+            gamewindow.changePictureBox(gamewindow.flop_1, path_backcard);
+            gamewindow.changePictureBox(gamewindow.flop_2, path_backcard);
+            gamewindow.changePictureBox(gamewindow.flop_3, path_backcard);
+            gamewindow.changePictureBox(gamewindow.turn, path_backcard);
+            gamewindow.changePictureBox(gamewindow.river, path_backcard);
+        }
+
+       
+        public void startHand()
+        {
+            //Initialize gamewindow
+            gamewindow = currentgame.getGameWindow();
             //Shuffle the deck on starthand
             getDeck().shuffleDeck();
             //Pick two cards from the top of the deck and give them to the players
@@ -60,15 +84,16 @@ namespace ConsoleApplication1
             string file_aiplayercard2 = aiplayercard2.getValue() + "of" + aiplayercard2.getSuit() + ".png";
             string path_aiplayercard1 = Path.Combine(path, file_aiplayercard1);
             string path_aiplayercard2 = Path.Combine(path, file_aiplayercard2);
-            //Add both filepaths to a list of filepaths
-            List<string> filepaths_playercards = new List<string> {path_playercard1, path_playercard2};
-            List<string> filepaths_aiplayercards = new List <string> {path_aiplayercard1, path_aiplayercard2};
-            List<List<string>> filepaths_starthand = new List<List<string>> {filepaths_playercards, filepaths_aiplayercards};
 
-            return filepaths_starthand;
+            gamewindow.changePictureBox(gamewindow.player_card1, path_playercard1);
+            gamewindow.changePictureBox(gamewindow.player_card2, path_playercard2);
+            gamewindow.changePictureBox(gamewindow.ai_card1, path_aiplayercard1);
+            gamewindow.changePictureBox(gamewindow.ai_card2, path_aiplayercard2);
+            currentgame.playSession("player");
+
         }
 
-        public List<string> flop()
+        public void flop()
         {
             //Pick three cards from the top of the deck and put them in the flop List
             flopcards.Add(getDeck().getTopCard());
@@ -82,13 +107,13 @@ namespace ConsoleApplication1
             string filepath_flop1 = Path.Combine(path, file_flop1);
             string filepath_flop2 = Path.Combine(path, file_flop2);
             string filepath_flop3 = Path.Combine(path, file_flop3);
-            //Add all filepaths to a list of filepaths
-            List<string> filepaths_flop = new List<string> {filepath_flop1, filepath_flop2, filepath_flop3};
-            //Return the filepathList
-            return filepaths_flop;
+
+            gamewindow.changePictureBox(gamewindow.flop_1, filepath_flop1);
+            gamewindow.changePictureBox(gamewindow.flop_2, filepath_flop2);
+            gamewindow.changePictureBox(gamewindow.flop_3, filepath_flop3);
         }
 
-        public string turn()
+        public void turn()
         {
             //Pick a card from the top of the deck and set the turncard as that card so we can access it later.
             turncard = getDeck().getTopCard();
@@ -97,10 +122,10 @@ namespace ConsoleApplication1
             string file_turn = turncard.getValue() + "of" + turncard.getSuit() + ".png";
             string filepath_turn = Path.Combine(path, file_turn);
             //Return the filepath
-            return filepath_turn;
+            gamewindow.changePictureBox(gamewindow.turn, filepath_turn);
         }
 
-        public string river()
+        public void river()
         {
             //Pick a card from the top of the deck and set rivercard as that card so we can access it later.
             rivercard = getDeck().getTopCard();
@@ -109,7 +134,7 @@ namespace ConsoleApplication1
             string file_river = rivercard.getValue() + "of" + rivercard.getSuit() + ".png";
             string filepath_river = Path.Combine(path, file_river);
             //Return the filepath
-            return filepath_river;
+            gamewindow.changePictureBox(gamewindow.river, filepath_river);
         }
 
         }

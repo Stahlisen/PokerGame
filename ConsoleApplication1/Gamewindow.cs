@@ -15,7 +15,7 @@ namespace ConsoleApplication1
     {
 
         Game currentgame;
-        
+
         public Gamewindow(Game game)
         {
             InitializeComponent();
@@ -25,11 +25,14 @@ namespace ConsoleApplication1
             player1chips_label.Parent = playerinfo_panel;
             desc_chips1_label.Parent = playerinfo_panel;
             desc_pot.Parent = pokerTable_box;
-            
+            currentpot.Parent = pokerTable_box;
+            eventtext_label.Parent = pokerTable_box;
+            player_bet_amount.Parent = pokerTable_box;
+            aiplayer_bet_amount.Parent = pokerTable_box;
             currentgame = game;
         }
 
- 
+
         private void Gamewindow_Load(object sender, EventArgs e)
         {
             player1_label.Text = currentgame.getPlayer().getName();
@@ -38,6 +41,18 @@ namespace ConsoleApplication1
             aiplayerchips_label.Text = Convert.ToString(currentgame.getAiPlayer().getCurrentChips());
             currentgame.initiateGameWindow(this);
             currentgame.newRound();
+
+        }
+
+        public void showMessage(string text)
+        {
+            MessageBox.Show(text);
+        }
+
+        public void showEvent(string text)
+        {
+
+            eventtext_label.Text = text;
 
         }
 
@@ -95,45 +110,58 @@ namespace ConsoleApplication1
             return river;
         }
 
-        private void starthand_button_Click(object sender, EventArgs e)
-        {
-            //Load the images of player hand cards
-            player_card1.Image = Image.FromFile(currentgame.getDealer().startHand()[0][0]);
-            player_card2.Image = Image.FromFile(currentgame.getDealer().startHand()[0][1]);
-            ai_card1.Image = Image.FromFile(currentgame.getDealer().startHand()[1][0]);
-            ai_card2.Image = Image.FromFile(currentgame.getDealer().startHand()[1][1]);
-            //Disable starthandbutton
-            starthand_button.Enabled = false;
-        }
-
-        private void flop_button_Click(object sender, EventArgs e)
-        {
-            flop_1.Image = Image.FromFile(currentgame.getDealer().flop()[0]);
-            flop_2.Image = Image.FromFile(currentgame.getDealer().flop()[1]);
-            flop_3.Image = Image.FromFile(currentgame.getDealer().flop()[2]);
-
-            flop_button.Enabled = false;
-
-        }
-
-        private void turn_button_Click(object sender, EventArgs e)
-        {
-            turn.Image = Image.FromFile(currentgame.getDealer().turn());
-
-            turn_button.Enabled = false;
-        }
-
-        private void river_button_Click(object sender, EventArgs e)
-        {
-            river.Image = Image.FromFile(currentgame.getDealer().river());
-
-            river_button.Enabled = false;
-        }
-
         private void label1_Click(object sender, EventArgs e)
         {
 
         }
 
+        public void changePictureBox(PictureBox box, string filepath)
+        {
+            box.Image = Image.FromFile(filepath);
+
+        }
+
+        public void changeLabel(Label label, string text)
+        {
+
+            label.Text = text;
+        }
+
+        private void bet_button_Click(object sender, EventArgs e)
+        {
+            currentgame.playerDidBet();
+
+        }
+
+        private void numericUpDown1_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void call_button_ai_Click(object sender, EventArgs e)
+        {
+            currentgame.playerDidCall();
+        }
+
+        private void fold_button_Click(object sender, EventArgs e)
+        {
+            currentgame.fold();
+
+        }
+
+        private void fold_button_ai_Click(object sender, EventArgs e)
+        {
+            currentgame.fold();
+        }
+
+        private void bet_button_ai_Click(object sender, EventArgs e)
+        {
+            currentgame.playerDidBet();
+        }
+
+        private void call_button_Click(object sender, EventArgs e)
+        {
+            currentgame.playerDidCall();
+        }
     }
 }
