@@ -117,7 +117,10 @@ namespace ConsoleApplication1
 
         public void changePictureBox(PictureBox box, string filepath)
         {
-            box.Image = Image.FromFile(filepath);
+            box.Image.Dispose();
+            Image img = Image.FromFile(filepath);
+            box.Image = img;
+            
 
         }
 
@@ -162,6 +165,30 @@ namespace ConsoleApplication1
         private void call_button_Click(object sender, EventArgs e)
         {
             currentgame.playerDidCall();
+        }
+
+        private void check_button_Click(object sender, EventArgs e)
+        {
+            currentgame.playerDidCheck();
+        }
+
+        private void check_button_ai_Click(object sender, EventArgs e)
+        {
+            currentgame.playerDidCheck();
+        }
+
+        public void disposeWindow()
+        {
+            this.Hide();
+            this.Close();
+            Startwindow sw = new Startwindow();
+            sw.ShowDialog();
+            
+        }
+
+        private void determine_button_Click(object sender, EventArgs e)
+        {
+            currentgame.result();
         }
     }
 }

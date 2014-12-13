@@ -28,7 +28,7 @@ namespace ConsoleApplication1
         bool river = false;
         string path = @"..\cards\";
         Gameanalyzer gameanalyzer = new Gameanalyzer();
-        
+        bool check = false;
         
 
         public Game(double Chips, string name)
@@ -64,6 +64,7 @@ namespace ConsoleApplication1
         }
         public void newRound()
         {
+            gamewindow.determine_button.Visible = false;
             currentbet = 0;
             currentpot = 0;
             gamewindow.changeLabel(gamewindow.aiplayerchips_label, Convert.ToString(getAiPlayer().getCurrentChips()));
@@ -136,7 +137,8 @@ namespace ConsoleApplication1
             }
             else if (starthand & flop & turn & river)
             {
-                result();
+                gamewindow.determine_button.Visible = true;
+                
             }
         }
 
@@ -145,24 +147,40 @@ namespace ConsoleApplication1
 
             if (getSmallBlindTurn() == "ai")
             {
-                Console.WriteLine("Ai Player has smallblind");
-                //Subtract big blind from humanplayer
-                getPlayer().setCurrentChips(getPlayer().getCurrentChips() - bigBlind);
-                gamewindow.changeLabel(gamewindow.player1chips_label, Convert.ToString(getPlayer().getCurrentChips()));
-                Console.WriteLine(getPlayer().getCurrentChips());
-                double playerbet = bigBlind;
+                if (getAiPlayer().getCurrentChips() >= smallBlind & getPlayer().getCurrentChips() >= bigBlind)
+                {
+                    Console.WriteLine("Ai Player has smallblind");
+                    //Subtract big blind from humanplayer
+                    getPlayer().setCurrentChips(getPlayer().getCurrentChips() - bigBlind);
+                    gamewindow.changeLabel(gamewindow.player1chips_label, Convert.ToString(getPlayer().getCurrentChips()));
+                    Console.WriteLine(getPlayer().getCurrentChips());
+                    double playerbet = bigBlind;
 
-                //Subtract small blind from aiplayer
-                getAiPlayer().setCurrentChips(getAiPlayer().getCurrentChips() - smallBlind);
-                gamewindow.changeLabel(gamewindow.aiplayerchips_label, Convert.ToString(getAiPlayer().getCurrentChips()));
-                Console.WriteLine(getAiPlayer().getCurrentChips());
-                double aibet = smallBlind;
-                currentbet = aibet + playerbet;
-                gatherPot();
-                currentbet = 0;
+                    //Subtract small blind from aiplayer
+                    getAiPlayer().setCurrentChips(getAiPlayer().getCurrentChips() - smallBlind);
+                    gamewindow.changeLabel(gamewindow.aiplayerchips_label, Convert.ToString(getAiPlayer().getCurrentChips()));
+                    Console.WriteLine(getAiPlayer().getCurrentChips());
+                    double aibet = smallBlind;
+                    currentbet = aibet + playerbet;
+                    gatherPot();
+                    currentbet = 0;
 
-                gamewindow.player1chips_label.Refresh();
-                gamewindow.aiplayerchips_label.Refresh();
+                    gamewindow.player1chips_label.Refresh();
+                    gamewindow.aiplayerchips_label.Refresh();
+                }
+                else
+                {
+                    if (getAiPlayer().getCurrentChips() < smallBlind)
+                    {
+                        gamewindow.showMessage("AIplayer cannot afford smallblind, Player wins the game!");
+                        gamewindow.disposeWindow();
+                    }
+                    else if (getPlayer().getCurrentChips() < bigBlind)
+                    {
+                        gamewindow.showMessage("Player cannot afford Bigblind, Player wins the game!");
+                        gamewindow.disposeWindow();
+                    }
+                }
                 
                 
 
@@ -170,24 +188,41 @@ namespace ConsoleApplication1
             }
             else
             {
-                Console.WriteLine("Player has smallblind");
-                //Subtract big blind from humanplayer
-                getAiPlayer().setCurrentChips(getAiPlayer().getCurrentChips() - bigBlind);
-                gamewindow.changeLabel(gamewindow.aiplayerchips_label, Convert.ToString(getAiPlayer().getCurrentChips()));
-                Console.WriteLine(getAiPlayer().getCurrentChips());
-                double aibet = bigBlind;
+                if (getPlayer().getCurrentChips() >= smallBlind & getAiPlayer().getCurrentChips() >= bigBlind)
+                {
+                    Console.WriteLine("Player has smallblind");
+                    //Subtract big blind from humanplayer
+                    getAiPlayer().setCurrentChips(getAiPlayer().getCurrentChips() - bigBlind);
+                    gamewindow.changeLabel(gamewindow.aiplayerchips_label, Convert.ToString(getAiPlayer().getCurrentChips()));
+                    Console.WriteLine(getAiPlayer().getCurrentChips());
+                    double aibet = bigBlind;
 
-                //Subtract small blind from aiplayer
-                getPlayer().setCurrentChips(getPlayer().getCurrentChips() - smallBlind);
-                gamewindow.changeLabel(gamewindow.player1chips_label, Convert.ToString(getPlayer().getCurrentChips()));
-                Console.WriteLine(getPlayer().getCurrentChips());
-                double playerbet = smallBlind;
-                currentbet = aibet + playerbet;
-                gatherPot();
-                
+                    //Subtract small blind from aiplayer
+                    getPlayer().setCurrentChips(getPlayer().getCurrentChips() - smallBlind);
+                    gamewindow.changeLabel(gamewindow.player1chips_label, Convert.ToString(getPlayer().getCurrentChips()));
+                    Console.WriteLine(getPlayer().getCurrentChips());
+                    double playerbet = smallBlind;
+                    currentbet = aibet + playerbet;
+                    gatherPot();
 
-                gamewindow.player1chips_label.Refresh();
-                gamewindow.aiplayerchips_label.Refresh(); 
+
+                    gamewindow.player1chips_label.Refresh();
+                    gamewindow.aiplayerchips_label.Refresh();
+                }
+                else
+                {
+                    if (getAiPlayer().getCurrentChips() < bigBlind)
+                    {
+                        gamewindow.showMessage("AIplayer cannot afford bigblind, Player wins the game!");
+                        gamewindow.disposeWindow();
+                    }
+                    else if (getPlayer().getCurrentChips() < smallBlind)
+                    {
+                        gamewindow.showMessage("Player cannot afford smallblind, Player wins the game!");
+                        gamewindow.disposeWindow();
+                    }
+
+                }
             }
 
             gamewindow.showEvent("Players made blinds " + smallBlind + "/" + bigBlind);
@@ -209,6 +244,7 @@ namespace ConsoleApplication1
             {
                 if (gamewindow.bet_amount.Value > 0)
                 {
+                   
                     gamewindow.player_bet_amount.Text = Convert.ToString(gamewindow.bet_amount.Value);
                     gamewindow.showEvent(getPlayersTurn() + " betted " + gamewindow.bet_amount.Value);
                     getPlayer().setCurrentChips(getPlayer().getCurrentChips() - Convert.ToDouble(gamewindow.bet_amount.Value));
@@ -237,9 +273,10 @@ namespace ConsoleApplication1
             {
                 if (gamewindow.bet_amount_ai.Value > 0)
                 {
+                  
                     gamewindow.aiplayer_bet_amount.Text = Convert.ToString(gamewindow.bet_amount_ai.Value);
                     gamewindow.showEvent(getPlayersTurn() + " betted " + gamewindow.bet_amount_ai.Value);
-                    getPlayer().setCurrentChips(getAiPlayer().getCurrentChips() - Convert.ToDouble(gamewindow.bet_amount_ai.Value));
+                    getAiPlayer().setCurrentChips(getAiPlayer().getCurrentChips() - Convert.ToDouble(gamewindow.bet_amount_ai.Value));
                     gamewindow.changeLabel(gamewindow.aiplayerchips_label, Convert.ToString(getAiPlayer().getCurrentChips()));
                     currentbet = Convert.ToDouble(gamewindow.bet_amount_ai.Value);
                     playersturn = "player";
@@ -263,26 +300,116 @@ namespace ConsoleApplication1
 
             if (playersturn == "aiplayer")
             {
-                gamewindow.aiplayer_bet_amount.Text = Convert.ToString(currentbet);
-                getAiPlayer().setCurrentChips(getAiPlayer().getCurrentChips() - currentbet);
-                gamewindow.changeLabel(gamewindow.aiplayerchips_label, Convert.ToString(getAiPlayer().getCurrentChips()));
-                currentbet = currentbet + currentbet;
-                gatherPot();
-                playersturn = "player";
-                playerOnHold();
-                nextCards();
+                if (currentbet <= getAiPlayer().getCurrentChips())
+                {
+                    if (getAiPlayer().getCurrentChips() == Convert.ToDouble(currentbet))
+                    {
+                        gamewindow.aiplayer_bet_amount.Text = Convert.ToString(currentbet);
+                        getAiPlayer().setCurrentChips(getAiPlayer().getCurrentChips() - currentbet);
+                        gamewindow.changeLabel(gamewindow.aiplayerchips_label, Convert.ToString(getAiPlayer().getCurrentChips()));
+                        currentbet = currentbet + currentbet;
+                        gatherPot();
+                        playersturn = "player";
+                        playerOnHold();
+                        confront();
+
+                    }
+                    else
+                    {
+                        gamewindow.aiplayer_bet_amount.Text = Convert.ToString(currentbet);
+                        getAiPlayer().setCurrentChips(getAiPlayer().getCurrentChips() - currentbet);
+                        gamewindow.changeLabel(gamewindow.aiplayerchips_label, Convert.ToString(getAiPlayer().getCurrentChips()));
+                        currentbet = currentbet + currentbet;
+                        gatherPot();
+                        playersturn = "player";
+                        playerOnHold();
+                        nextCards();
+                    }
+                }
+                else
+                {
+                    gamewindow.showMessage("You don't have enough chips to call the bet");
+                }
             }
             else
             {
-                gamewindow.player_bet_amount.Text = Convert.ToString(currentbet);
-                getPlayer().setCurrentChips(getPlayer().getCurrentChips() - currentbet);
-                gamewindow.changeLabel(gamewindow.player1chips_label, Convert.ToString(getPlayer().getCurrentChips()));
-                currentbet = currentbet + currentbet;
-                gatherPot();
-                playersturn = "aiplayer";
-                playerOnHold();
-                nextCards();
+                if (currentbet <= getPlayer().getCurrentChips())
+                {
+                    if (getPlayer().getCurrentChips() == Convert.ToDouble(currentbet))
+                    {
+                        gamewindow.player_bet_amount.Text = Convert.ToString(currentbet);
+                        getPlayer().setCurrentChips(getPlayer().getCurrentChips() - currentbet);
+                        gamewindow.changeLabel(gamewindow.player1chips_label, Convert.ToString(getPlayer().getCurrentChips()));
+                        currentbet = currentbet + currentbet;
+                        gatherPot();
+                        playersturn = "aiplayer";
+                        playerOnHold();
+                        confront();
+                    }
+                    else
+                    {
+                        gamewindow.player_bet_amount.Text = Convert.ToString(currentbet);
+                        getPlayer().setCurrentChips(getPlayer().getCurrentChips() - currentbet);
+                        gamewindow.changeLabel(gamewindow.player1chips_label, Convert.ToString(getPlayer().getCurrentChips()));
+                        currentbet = currentbet + currentbet;
+                        gatherPot();
+                        playersturn = "aiplayer";
+                        playerOnHold();
+                        nextCards();
+                    }
+                }
+                else
+                {
+                    gamewindow.showMessage("You don't have enough chips to call the bet");
+                }
             }
+        }
+
+        public void playerDidCheck()
+        {
+            if (playersturn == "player")
+            {
+                if (check)
+                {
+                    gamewindow.showEvent("Player checked");
+                    playersturn = "aiplayer";
+                    playSession(playersturn);
+                    playerOnHold();
+                    nextCards();
+                    check = false;
+                }
+                else
+                {
+                    Console.WriteLine(getPlayer().getCurrentChips());
+                    gamewindow.showEvent("Player checked");
+                    check = true;
+                    playerOnHold();
+                    playersturn = "aiplayer";
+                    playSession(playersturn);
+                }
+            }
+            else
+            {
+                if (check)
+                {
+                    gamewindow.showEvent("AiPlayer checked");
+                    playersturn = "player";
+                    playSession(playersturn);
+                    playerOnHold();
+                    nextCards();
+                    check = false;
+                }
+                else
+                {
+                    gamewindow.showEvent("AiPlayer checked");
+                    check = true;
+                    playerOnHold();
+                    playersturn = "player";
+                    playSession(playersturn);
+                }
+            }
+
+
         }
 
         public void playSession(string playerturn)
@@ -292,13 +419,34 @@ namespace ConsoleApplication1
             {
                 if (currentbet > 0)
                 {
+                    Console.WriteLine(getPlayer().getCurrentChips());
+                    Console.WriteLine(currentbet);
+                    if (getPlayer().getCurrentChips() > 0 && getPlayer().getCurrentChips() >= currentbet) {
                     //If the current bet is higher than 0, means that the AIPlayer has betted and the player can only call with the same amount.
-                    gamewindow.call_button.Text = "Call " + currentbet;
-                    gamewindow.check_button.Enabled = false;
-                    gamewindow.fold_button.Enabled = true;
-                    gamewindow.bet_button.Enabled = false;
-                    gamewindow.call_button.Enabled = true;
-                    gamewindow.bet_amount.Maximum = Convert.ToDecimal(getPlayer().getCurrentChips());
+                        if (getPlayer().getCurrentChips() == Convert.ToDouble(currentbet))
+                        {
+                            gamewindow.call_button.Text = "All in " + currentbet;
+                            gamewindow.check_button.Enabled = false;
+                            gamewindow.fold_button.Enabled = true;
+                            gamewindow.bet_button.Enabled = false;
+                            gamewindow.call_button.Enabled = true;
+                            gamewindow.bet_amount.Maximum = Convert.ToDecimal(getPlayer().getCurrentChips());
+                        }
+                        else
+                        {
+                            gamewindow.call_button.Text = "Call " + currentbet;
+                            gamewindow.check_button.Enabled = false;
+                            gamewindow.fold_button.Enabled = true;
+                            gamewindow.bet_button.Enabled = false;
+                            gamewindow.call_button.Enabled = true;
+                            gamewindow.bet_amount.Maximum = Convert.ToDecimal(getPlayer().getCurrentChips());
+                        }
+                    }
+                    else
+                    {
+                        confront();
+                        
+                    }
 
                 }
                 else
@@ -323,29 +471,49 @@ namespace ConsoleApplication1
             {
                 if (currentbet > 0)
                 {
-                    //If the current bet is higher than 0, means that the Player has betted and the AIplayer can only call with the same amount.
-                    gamewindow.call_button_ai.Text = "Call " + currentbet;
-                    gamewindow.check_button_ai.Enabled = false;
-                    gamewindow.fold_button_ai.Enabled = true;
-                    gamewindow.call_button_ai.Enabled = true;
-                    gamewindow.bet_amount_ai.Maximum = Convert.ToDecimal(getAiPlayer().getCurrentChips());
+                    if (getAiPlayer().getCurrentChips() > 0 && getAiPlayer().getCurrentChips() >= currentbet)
+                    {
+                        if (getAiPlayer().getCurrentChips() == Convert.ToDouble(currentbet))
+                        {
+                            gamewindow.call_button_ai.Text = "All in " + currentbet;
+                            gamewindow.check_button_ai.Enabled = false;
+                            gamewindow.fold_button_ai.Enabled = true;
+                            gamewindow.bet_button_ai.Enabled = false;
+                            gamewindow.call_button_ai.Enabled = true;
+                            gamewindow.bet_amount_ai.Maximum = Convert.ToDecimal(getAiPlayer().getCurrentChips());
+                        }
+                        else
+                        {
+                            gamewindow.call_button_ai.Text = "Call " + currentbet;
+                            gamewindow.check_button_ai.Enabled = false;
+                            gamewindow.fold_button_ai.Enabled = true;
+                            gamewindow.bet_button_ai.Enabled = false;
+                            gamewindow.call_button_ai.Enabled = true;
+                            gamewindow.bet_amount_ai.Maximum = Convert.ToDecimal(getAiPlayer().getCurrentChips());
+                        }
+                    }
+                    else
+                    {
+                        confront();
+                    }
                     
                 }
                 else
                 {
-                    //If the current bet is 0, the player is starting he can either bet, check or fold. 
+                    //If the current bet is 0, the aiplayer is starting he can either bet, check or fold. 
                     gamewindow.bet_button_ai.Enabled = true;
                     gamewindow.fold_button_ai.Enabled = true;
                     gamewindow.check_button_ai.Enabled = true;
                     gamewindow.bet_amount_ai.Enabled = true;
                     gamewindow.bet_amount_ai.Maximum = Convert.ToDecimal(getAiPlayer().getCurrentChips());
                 }
-                //If it's the player's turn, the Player play-panel is disabled.
+                //If it's the aiplayer's turn, the Player play-panel is disabled.
                 gamewindow.call_button.Text = "Call ";
                 gamewindow.check_button.Enabled = false;
                 gamewindow.fold_button.Enabled = false;
                 gamewindow.call_button.Enabled = false;
                 gamewindow.bet_amount.Enabled = false;
+                gamewindow.bet_button.Enabled = false;
 
             }
 
@@ -377,13 +545,15 @@ namespace ConsoleApplication1
         {
             if (playersturn == "player")
             {
-                getAiPlayer().setCurrentChips(getAiPlayer().getCurrentChips() + currentpot);
+                gamewindow.showMessage("Player folded, AiPlayer wins " + (currentpot + currentbet));
+                getAiPlayer().setCurrentChips(getAiPlayer().getCurrentChips() + currentpot + currentbet);
                 playersturn = "aiplayer";
                 newRound();
             }
             else
             {
-                getPlayer().setCurrentChips(getPlayer().getCurrentChips() + currentpot);
+                gamewindow.showMessage("AiPlayer folded, Player wins " + (currentpot + currentbet));
+                getPlayer().setCurrentChips(getPlayer().getCurrentChips() + currentpot + currentbet);
                 playersturn = "player";
                 newRound();
             }
@@ -399,6 +569,15 @@ namespace ConsoleApplication1
                 newRound();
             }
 
+        }
+
+        public void confront()
+        {
+            gamewindow.determine_button.Visible = true;
+            getDealer().flop();
+            getDealer().turn();
+            getDealer().river();
+            
         }
 
         //Getters and setters for small/bigblind and chips

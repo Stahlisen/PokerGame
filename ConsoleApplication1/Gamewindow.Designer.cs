@@ -61,6 +61,7 @@
             this.fold_button_ai = new System.Windows.Forms.Button();
             this.check_button_ai = new System.Windows.Forms.Button();
             this.bet_amount_ai = new System.Windows.Forms.NumericUpDown();
+            this.determine_button = new System.Windows.Forms.Button();
             this.playerinfo_panel.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.river)).BeginInit();
@@ -313,6 +314,7 @@
             this.check_button.TabIndex = 27;
             this.check_button.Text = "Check";
             this.check_button.UseVisualStyleBackColor = true;
+            this.check_button.Click += new System.EventHandler(this.check_button_Click);
             // 
             // fold_button
             // 
@@ -419,6 +421,7 @@
             this.check_button_ai.TabIndex = 35;
             this.check_button_ai.Text = "Check";
             this.check_button_ai.UseVisualStyleBackColor = true;
+            this.check_button_ai.Click += new System.EventHandler(this.check_button_ai_Click);
             // 
             // bet_amount_ai
             // 
@@ -429,11 +432,23 @@
             this.bet_amount_ai.TabIndex = 40;
             this.bet_amount_ai.ValueChanged += new System.EventHandler(this.numericUpDown1_ValueChanged);
             // 
+            // determine_button
+            // 
+            this.determine_button.Location = new System.Drawing.Point(706, 289);
+            this.determine_button.Name = "determine_button";
+            this.determine_button.Size = new System.Drawing.Size(74, 43);
+            this.determine_button.TabIndex = 41;
+            this.determine_button.Text = "Determine winner";
+            this.determine_button.UseVisualStyleBackColor = true;
+            this.determine_button.Visible = false;
+            this.determine_button.Click += new System.EventHandler(this.determine_button_Click);
+            // 
             // Gamewindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(961, 628);
+            this.Controls.Add(this.determine_button);
             this.Controls.Add(this.bet_amount_ai);
             this.Controls.Add(this.call_button_ai);
             this.Controls.Add(this.bet_button_ai);
@@ -522,6 +537,7 @@
         public System.Windows.Forms.Button fold_button_ai;
         public System.Windows.Forms.Button check_button_ai;
         public System.Windows.Forms.NumericUpDown bet_amount_ai;
+        public System.Windows.Forms.Button determine_button;
 
 
     }
