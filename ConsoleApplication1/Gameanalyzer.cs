@@ -50,24 +50,19 @@ namespace ConsoleApplication1
 
         public void evaluateHands() {
             gatherHands();
-
-            hasPair("player");
-            hasPair("aiplayer");
+            checkForHands("player");
+            checkForHands("aiplayer");
         }
 
-        public void hasPair(string player)
+        public void checkForHands(string player)
         {
-            //Create tree lists, one which stores all the string values of the players combination of cards,
-            //one to store every pair of cards it includes, we will return this list from this method.
-            //And one which will be referencing either of the two players Card Lists, so that we can smoothly change
-            //the reference according to which player we are evaluating.
             List<string> values = new List<string>();
-            List<string> pairs = new List<string>();
+            List<string> suits = new List<string>();
             List<Card> cards;
             values.Clear();
-            pairs.Clear();
+            suits.Clear();
 
-            if (player == "player") 
+            if (player == "player")
             {
                 cards = playerCards;
             }
@@ -75,42 +70,104 @@ namespace ConsoleApplication1
             {
                 cards = AiCards;
             }
-            //Add value of each card in a list so we can match duplicates.
+
             foreach (Card element in cards)
             {
-                Console.WriteLine(element.getValue());
                 values.Add(element.getValue().ToString());
+                suits.Add(element.getSuit().ToString());
             }
-            //Check for duplicates
+
+            hasPair(values, player);
+            
+
+        }
+
+        public void hasPair(List<string> values, string player)
+        {
+            Resulthand hand;
+            if (player == "player")
+            {
+                hand = playerhand;
+            }
+            else
+            {
+                hand = aihand;
+            }
+            List<string> pairs = new List<string>();
+            List<int> paircounts = new List<int>();
             var paircards = from x in values
                         group x by x into grouped
                         where grouped.Count() > 1
                         select grouped.Key;
 
+            var paircount = from x in values
+                            group x by x into grouped
+                            where grouped.Count() > 1
+                            select grouped.Count();
+
+            int paircounter = 0;
+            int overtwo = 0;
+
             //If there was any duplicates we add each value of the pair into a List (pairs) and we return it from the method.
             if (paircards.Any())
             {
+                foreach (var x in paircount)
+                {
+                    Console.WriteLine(x);
+                    paircounts.Add(x);
+                    if (x == 3)
+                    {
+                        hand.setTriplet(true);
+                        Console.WriteLine(player + "has three of a kind");
+                    }
+                    else if (x == 4)
+                    {
+                        hand.setFour(true);
+                        Console.WriteLine(player + "has four of a kind");
+                    }
 
+                    var fullhousecheck = from y in paircounts
+                                         where y > 2
+                                         orderby y ascending
+                                         select y;
+
+                    foreach (var y in fullhousecheck)
+                    {
+                        overtwo++;
+                    }
+
+                    if (overtwo > 0 && paircounts.ToArray().Length > 2)
+                    {
+                        hand.setFullHouse(true);
+                        Console.WriteLine(player + "has a full house");
+                    }
+                }
+                
                 foreach (var x in paircards) {
+                    
                     Console.WriteLine( player + " has pair of " + x + "s");
+                    paircounter++;
                     pairs.Add(x);
                 }
 
-
-                if (pairs.ToArray().Length > 1)
+                if (paircounter > 1)
                 {
-                    playerhand.setTwoPair(true);
+                    
+                    hand.setTwoPair(true);
                 }
                 else
                 {
-                    playerhand.setPair(true);
+                    hand.setPair(true);
                 }
-
             } else
             {
                 Console.WriteLine(player + "has no pair");
-
             }
+        }
+
+        public void hasTriplet(string player)
+        {
+         
 
         }
 
