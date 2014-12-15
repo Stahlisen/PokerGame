@@ -27,7 +27,7 @@ namespace ConsoleApplication1
         bool turn = false;
         bool river = false;
         string path = @"..\cards\";
-        Gameanalyzer gameanalyzer = new Gameanalyzer();
+        Gameanalyzer gameanalyzer;
         bool check = false;
         
 
@@ -43,6 +43,7 @@ namespace ConsoleApplication1
             aiplayer.setCurrentChips(Chips);
 
             dealer = new Dealer(this);
+            gameanalyzer = new Gameanalyzer(this);
             
         }
 
@@ -403,8 +404,9 @@ namespace ConsoleApplication1
                 {
                     gamewindow.showEvent("AiPlayer checked");
                     check = true;
-                    playerOnHold();
+                    
                     playersturn = "player";
+                    playerOnHold();
                     playSession(playersturn);
                 }
             }
@@ -548,6 +550,7 @@ namespace ConsoleApplication1
                 gamewindow.showMessage("Player folded, AiPlayer wins " + (currentpot + currentbet));
                 getAiPlayer().setCurrentChips(getAiPlayer().getCurrentChips() + currentpot + currentbet);
                 playersturn = "aiplayer";
+                playerOnHold();
                 newRound();
             }
             else
@@ -555,6 +558,7 @@ namespace ConsoleApplication1
                 gamewindow.showMessage("AiPlayer folded, Player wins " + (currentpot + currentbet));
                 getPlayer().setCurrentChips(getPlayer().getCurrentChips() + currentpot + currentbet);
                 playersturn = "player";
+                playerOnHold();
                 newRound();
             }
         }

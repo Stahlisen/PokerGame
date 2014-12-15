@@ -62,6 +62,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="Resulthand.cs" />
     <Compile Include="Startwindow.cs">
       <SubType>Form</SubType>
     </Compile>

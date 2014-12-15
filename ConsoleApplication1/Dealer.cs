@@ -95,6 +95,7 @@ namespace ConsoleApplication1
 
         public void flop()
         {
+            flopcards.Clear();
             //Pick three cards from the top of the deck and put them in the flop List
             flopcards.Add(getDeck().getTopCard());
             flopcards.Add(getDeck().getTopCard());
@@ -135,6 +136,22 @@ namespace ConsoleApplication1
             string filepath_river = Path.Combine(path, file_river);
             //Return the filepath
             gamewindow.changePictureBox(gamewindow.river, filepath_river);
+        }
+
+        public List<Card> getFlop()
+        {
+
+            return flopcards;
+        }
+
+        public Card getTurn()
+        {
+            return turncard;
+        }
+
+        public Card getRiver()
+        {
+            return rivercard;
         }
 
         }
